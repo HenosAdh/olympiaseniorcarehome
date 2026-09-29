@@ -678,5 +678,5 @@ label{font-size:.95rem}
 
 /* the resident photo in the Mealtimes section: portrait, with a caption */
 .photo-note{margin:0}
-.photo-note img{border-radius:var(--r-md);box-shadow:var(--sh-sm);width:100%;max-height:560px;object-fit:cover;object-position:center 30%}
+.photo-note img{border-radius:var(--r-md);box-shadow:var(--sh-sm);width:100%;height:auto}
 .photo-note figcaption{margin-top:.7rem;font-size:1rem;color:var(--muted)}
