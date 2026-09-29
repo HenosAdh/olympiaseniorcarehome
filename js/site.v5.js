@@ -88,6 +88,11 @@
             keystroke out of the recordings. Do not relax either one.
    ============================================================ */
 (function(){
+  // Only the real site reports. Staging (fullcensus.org/olympiaseniorcare) and
+  // localhost must never write into Peter's property, or the numbers we show him
+  // are our own visits.
+  var LIVE = /(^|\.)olympiaseniorcarehome\.com$/i.test(location.hostname);
+  if(!LIVE) return;
   var GA_ID = 'G-442T205S6E';
   var CLARITY_ID = 'ypyewdsqq7';
   window.dataLayer = window.dataLayer || [];
