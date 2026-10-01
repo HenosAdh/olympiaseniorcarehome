@@ -20,8 +20,9 @@
 
   STILL OPEN (see BUILD-NOTES.md):
     - No testimonials yet. The section is written but commented out.
-    - Form posts to FormSubmit and needs Peter to click the
-      activation email before it delivers anywhere.
+    - Form posts to Web3Forms (key on the Olympia Senior Care account).
+      No activation step. FormSubmit was dropped 30 Sep: never activated,
+      and returning 500 for every address that day.
   ============================================================
 -->
 
@@ -592,11 +593,15 @@
 
     <div class="panel">
       <h3 style="margin-bottom:1.1rem">Request a tour</h3>
-      <form id="tourForm" data-clarity-mask="true" action="https://formsubmit.co/hello@olympiaseniorcarehome.com" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="New tour request from olympiaseniorcarehome.com">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <form id="tourForm" data-clarity-mask="true" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms, 30 Sep. Replaced FormSubmit, which was never activated and
+             was returning HTTP 500 for every address on 30 Sep. Key belongs to the
+             Olympia Senior Care account (hello@olympiaseniorcarehome.com), not to any
+             other client. "botcheck" is the honeypot. -->
+        <input type="hidden" name="access_key" value="68b7e7ab-c801-4d00-8c65-f7cfe73a9bf3">
+        <input type="hidden" name="subject" value="New tour request from olympiaseniorcarehome.com">
+        <input type="hidden" name="from_name" value="Olympia Senior Care website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" placeholder="First and last name" required autocomplete="name">
@@ -697,6 +702,6 @@
   </div>
 </footer>
 
-<script src="js/site.v5.js"></script>
+<script src="js/site.v6.js"></script>
 </body>
 </html>
