@@ -1,0 +1,58 @@
+/* ============================================================
+   site.v21.css  —  Round 27, 6 Oct 2026
+   Peter's 5 Oct list: announcement strip, reviews, visit steps,
+   weekly menu, phone line inside the pricing answer.
+   Appended to the inlined <style> of every page by round27.py.
+   ============================================================ */
+
+/* Announcement strip. Sits ABOVE the sticky nav, so it is the first thing
+   on screen and then scrolls away — it never eats the mobile viewport. */
+.announce{background:var(--teal);color:var(--on-teal)}
+.announce-in{max-width:var(--max);margin-inline:auto;padding:.55rem var(--pad);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:.45rem .9rem;font-size:.95rem;text-align:center;line-height:1.4}
+.announce b{color:#fff;font-weight:800}
+.announce .dot{width:8px;height:8px;border-radius:50%;background:var(--amber-lt);
+  box-shadow:0 0 0 4px rgba(232,168,87,.22);flex:none}
+.announce a{color:#fff;font-weight:800;text-decoration:underline;
+  text-underline-offset:3px;white-space:nowrap}
+@media(max-width:560px){.announce-in{font-size:.88rem;padding:.5rem 1rem}}
+
+/* What families say about us */
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem}
+/* one review today; stop a lone card stretching the full width */
+.rev-grid:has(>:only-child){max-width:760px}
+.rev{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:clamp(1.3rem,2.5vw,1.9rem);box-shadow:var(--sh-sm);margin:0;
+  display:flex;flex-direction:column;gap:.9rem}
+.rev .stars{color:var(--amber);font-size:1.15rem;letter-spacing:.12em;line-height:1}
+.rev blockquote{font-family:var(--f-serif);font-size:clamp(1.05rem,1.8vw,1.22rem);
+  line-height:1.5;color:var(--ink);margin:0}
+.rev figcaption{color:var(--muted);font-size:.95rem;font-weight:700;margin-top:auto}
+
+/* What happens during your visit */
+.steps{list-style:none;counter-reset:s;margin:0;display:grid;
+  grid-template-columns:repeat(5,1fr);gap:1.2rem}
+@media(max-width:1040px){.steps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;background:var(--cream);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:1.3rem 1.4rem 1.4rem}
+.steps li::before{content:counter(s);display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;
+  font-weight:800;font-size:1rem;margin-bottom:.8rem}
+.steps li b{display:block;font-size:1.08rem;color:var(--ink);margin-bottom:.35rem}
+.steps-cta{margin-top:clamp(1.8rem,3vw,2.4rem);text-align:center}
+.steps-cta h3{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:1.1rem}
+.steps-btns{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+
+/* The weekly menu. The source Peter sent is only 1024px wide, so the image is
+   tappable to open full size rather than pretending it is readable inline. */
+.menu-card{margin:clamp(1.8rem,3vw,2.6rem) 0 0;text-align:center}
+.menu-card a{display:block;border-radius:var(--r-md);overflow:hidden;
+  box-shadow:var(--sh-md);border:1px solid var(--line)}
+.menu-card img{width:100%}
+.menu-card figcaption{margin-top:.9rem;color:var(--muted);font-size:.95rem}
+
+/* Phone line inside the pricing answer */
+.faq-call{margin-top:1.1rem;font-weight:700}
+.faq-call a{font-weight:800;white-space:nowrap}
