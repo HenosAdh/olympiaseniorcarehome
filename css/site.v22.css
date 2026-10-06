@@ -1,0 +1,44 @@
+/* ============================================================
+   site.v22.css  —  Round 28, 6 Oct 2026
+   Phone numbers that are calls-to-action now read as buttons.
+   Peter could not tell the pricing number was tappable; it was an
+   underlined link sitting next to a filled orange pill.
+   ============================================================ */
+
+.btn-tel{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  min-height:44px;padding:.62rem 1.25rem;border-radius:var(--pill);
+  background:var(--teal);color:#fff;font-family:var(--f-sans);font-weight:800;
+  font-size:.95rem;line-height:1;text-decoration:none;white-space:nowrap;
+  border:1.5px solid var(--teal);box-shadow:0 6px 18px rgba(24,54,85,.22);
+  transition:transform .15s,background .15s,box-shadow .15s}
+.btn-tel:hover,.btn-tel:focus-visible{background:#12283D;border-color:#12283D;
+  color:#fff;transform:translateY(-1px)}
+.btn-tel svg{flex:none}
+
+/* On the teal announcement strip the pill inverts, or it disappears. */
+.announce .btn-tel{background:#fff;color:var(--teal);border-color:#fff;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);min-height:36px;padding:.42rem 1rem;font-size:.9rem}
+.announce .btn-tel:hover,.announce .btn-tel:focus-visible{background:var(--on-teal);
+  color:var(--teal);border-color:var(--on-teal)}
+
+/* In the nav, sized to sit beside 'Schedule a tour' without crowding it. */
+.nav-phone.btn-tel{min-height:40px;padding:.5rem 1.05rem;font-size:.9rem;color:#fff}
+
+/* The pricing answer: the number gets its own line and its own button. */
+.faq-call{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1.3rem;font-weight:700}
+
+/* Contact block and mobile drawer. */
+.contact-list .btn-tel{margin-top:.4rem}
+.drawer .btn-tel{width:100%;margin-top:.7rem;border:1.5px solid var(--teal);color:#fff}
+@media(max-width:560px){.announce .btn-tel{min-height:34px;padding:.38rem .9rem}}
+
+/* --- v22 corrections: three existing rules outrank a bare .btn-tel --- */
+/* .announce a (0,1,1) was still forcing an underline through the pill */
+.announce a.btn-tel{text-decoration:none}
+/* .drawer a (0,1,1) sets display:block + padding:.7rem 0, which killed the
+   icon gap and the centring. Same trick the theme already uses for .btn-primary. */
+.drawer a.btn-tel{display:inline-flex;justify-content:center;gap:.45rem;
+  padding:.62rem 1.25rem;border-bottom:0}
+/* .nav-phone is hidden below 1320px by the theme; .btn-tel's display:inline-flex
+   was overriding that and shoving the burger off the edge on a phone. */
+@media(max-width:1320px){.nav-phone.btn-tel{display:none}}
